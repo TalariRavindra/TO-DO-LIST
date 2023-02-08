@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style type="text/css">
+        .checked{
+            text-decoration: line-through;
+            font-style: italic;
+            color: black;
+            background: green;
+        }
+    </style>
+    <link rel="stylesheet" href="stodo.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Todo List</h2>
+        <div class="inputfield">
+            <input type="text" id="todo" placeholder="Task to be done..">
+            <button onclick="js_fun()">Add</button>
+        </div>
+        <div id="myList">
+            <ul></ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+        var list = document.getElementById("myList");
+        function js_fun(){
+            var value = document.getElementById("todo").value;
+            var li = document.createElement("LI");
+            var textNode = document.createTextNode(value);
+            li.appendChild(textNode);
+            list.appendChild(li);
+        }
+        list.addEventListener("click", function(ev) {
+            if(ev.target.tagName === "LI"){
+                ev.target.classList.toggle("checked");
+            }
+            },false);
+    </script>
+</html>
